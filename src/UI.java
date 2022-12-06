@@ -1,6 +1,11 @@
 import java.util.Scanner;
 public class UI {
     public static Scanner sc = new Scanner(System.in);
+
+    /**
+     * Vybírání úkolu
+     * @return zkratka zvoleného úkolu
+     */
     public static String chooseTask(){
         while(true){
             System.out.println("Vyber si ulohu\n(1) LatinSquareMatrix (2) Christmas Task");
@@ -13,6 +18,12 @@ public class UI {
             }
         }
     }
+
+    /**
+     * Vytvoření matice podle vstupu uživatele
+     * @param size velikost matice
+     * @return int[][] matice
+     */
     public static int[][] createMatrix(int size){
         int[][] matrix = new int[size][size];
         System.out.println("Matrix");
@@ -23,6 +34,11 @@ public class UI {
         }
         return matrix;
     }
+
+    /**
+     * Získání velikosti matice
+     * @return velikost matice
+     */
     public static int getMatrixSize(){
         System.out.println("Size");
         return sc.nextInt();

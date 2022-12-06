@@ -1,13 +1,27 @@
 public class Main {
     public static void main(String[] args) {
+        //Testování
+        System.out.println(LatinMatrix.repeatedNumbers(new int[]{1,2,3,4,5}));
+        System.out.println(LatinMatrix.repeatedNumbers(new int[]{1,2,3,4,3}));
+        System.out.println(LatinMatrix.getArraySumValue(new int[]{1,2,3,4,3}));
+        System.out.println(LatinMatrix.getNumberSumValue(6));
+        System.out.println(LatinMatrix.differentSumValue(new int[]{1,2,3,4,3}, 5));
+        System.out.println(LatinMatrix.differentSumValue(new int[]{1,2,3,4,5}, 5));
+        System.out.println(LatinMatrix.isLatinSquare(new int[][]{{1,2},{2,1}}, 2));
+        System.out.println(LatinMatrix.isLatinSquare(new int[][]{{1,2},{1,2}}, 2));
         String task = UI.chooseTask();
         switch (task) {
             case "lsm" -> {
                 int size = UI.getMatrixSize();
-                int[][] matrix = UI.createMatrix(size);
-                System.out.println(LatinMatrix.isLatinSquare(matrix, size));
+                while(size>0){
+                    int[][] matrix = UI.createMatrix(size);
+                    System.out.println(LatinMatrix.isLatinSquare(matrix, size));
+                    size = UI.getMatrixSize();
+                }
             }
-            case "cht" -> System.out.println("Christmas Task");
+            case "cht" -> {
+                ChristmasTask.printCT();
+            }
         }
     }
 }
