@@ -1,4 +1,3 @@
-import java.util.HashSet;
 public class LatinMatrix {
     /**
      * Metoda pro zjištění, jestli je zadaná matice Latinský čtverec nebo ne.
@@ -8,7 +7,7 @@ public class LatinMatrix {
      */
     public static boolean isLatinSquare(int[][] matrix, int size){
         for(int x=0; x<size; x++){
-            if(repeatedNumbers(matrix[x]) || differentSumValue(matrix[x], size)){
+            if(repeatedNumbers(matrix[x]) || isNotInRange(matrix[x])){
                 return false;
             }
             int[] column = new int[size];
@@ -16,7 +15,7 @@ public class LatinMatrix {
             for(int y=0; y<size; y++){
                 column[y] = matrix[y][prvek];
             }
-            if(repeatedNumbers(column) || differentSumValue(column, size)){
+            if(repeatedNumbers(column) || isNotInRange(column)){
                 return false;
             }
         }
@@ -29,45 +28,22 @@ public class LatinMatrix {
      * @return true pokud se v sekvenci opakuje číslo
      */
     public static boolean repeatedNumbers(int[] arr){
-        HashSet<Integer> set = new HashSet<>();
-        for(int a : arr){
-            set.add(a);
+        for(int i = 0; i < arr.length; i++){
+            for(int j = i + 1; j < arr.length; j++){
+                if (arr[i] == arr[j]){
+                    return true;
+                }
+            }
         }
-        return arr.length != set.size();
+        return false;
     }
-
-    /**
-     * Zjištění nerovnosti sumy pole a hodnoty
-     * @param array pole
-     * @param size hodnota
-     * @return true pokud se suma nerovná
-     */
-    public static boolean differentSumValue(int[] array, int size){
-        return getNumberSumValue(size) != getArraySumValue(array);
-    }
-
-    /**
-     * Výpočet sumy hodnoty
-     * @param size hodnota
-     * @return suma hodnoty
-     */
-    public static int getNumberSumValue(int size){
-        if(size <= 0){
-            return 0;
+    public static boolean isNotInRange(int[] arr){
+        int n = arr.length;
+        for (int i : arr) {
+            if (i < 0 || i > n) {
+                return true;
+            }
         }
-        return size + getNumberSumValue(size-1);
-    }
-
-    /**
-     * Výpočet sumy pole
-     * @param arr pole
-     * @return suma pole
-     */
-    public static int getArraySumValue(int[] arr){
-        int arraySum = 0;
-        for(int n : arr){
-            arraySum+=n;
-        }
-        return arraySum;
+        return false;
     }
 }

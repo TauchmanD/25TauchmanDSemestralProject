@@ -3,10 +3,8 @@ public class Main {
         //Testování
         System.out.println(LatinMatrix.repeatedNumbers(new int[]{1,2,3,4,5}));
         System.out.println(LatinMatrix.repeatedNumbers(new int[]{1,2,3,4,3}));
-        System.out.println(LatinMatrix.getArraySumValue(new int[]{1,2,3,4,3}));
-        System.out.println(LatinMatrix.getNumberSumValue(6));
-        System.out.println(LatinMatrix.differentSumValue(new int[]{1,2,3,4,3}, 5));
-        System.out.println(LatinMatrix.differentSumValue(new int[]{1,2,3,4,5}, 5));
+        System.out.println(LatinMatrix.isNotInRange(new int[] {1,2,3,8}));
+        System.out.println(LatinMatrix.isNotInRange(new int[] {1,2,3,4}));
         System.out.println(LatinMatrix.isLatinSquare(new int[][]{{1,2},{2,1}}, 2));
         System.out.println(LatinMatrix.isLatinSquare(new int[][]{{1,2},{1,2}}, 2));
         String task = UI.chooseTask();
