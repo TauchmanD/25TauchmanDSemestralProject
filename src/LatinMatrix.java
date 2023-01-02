@@ -12,8 +12,9 @@ public class LatinMatrix {
                 return false;
             }
             int[] column = new int[size];
+            int prvek = x;
             for(int y=0; y<size; y++){
-                column[y] = matrix[y][x];
+                column[y] = matrix[y][prvek];
             }
             if(repeatedNumbers(column) || differentSumValue(column, size)){
                 return false;
