@@ -37,10 +37,16 @@ public class LatinMatrix {
         }
         return false;
     }
+
+    /**
+     * Zjištění, jestli je nějaká honnota v poli mimo rozsah 1...n
+     * @param arr pole hodnot
+     * @return true pokud nějaká hodnota v poli je mimo rozsah
+     */
     public static boolean isNotInRange(int[] arr){
         int n = arr.length;
         for (int i : arr) {
-            if (i < 0 || i > n) {
+            if (i < 1 || i > n) {
                 return true;
             }
         }
